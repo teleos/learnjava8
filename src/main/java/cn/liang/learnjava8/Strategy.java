@@ -2,6 +2,7 @@ package cn.liang.learnjava8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -18,6 +19,16 @@ public class Strategy {
         List<Apple> list1 = strategy.filterApples(list, new AppleWeightPredicate());
         list1.forEach(System.out::println);
 
+        //测试以指定字符串打印苹果
+//        prettyPrintApple(list,new AppleFancyFormatter());
+
+        list.sort(Comparator.comparing(Apple::getWeight));
+
+        prettyPrintApple(list,new AppleSimpleFormatter());
+
+
+        List<String> map = map(list, apple -> apple.getColor() + ":" + apple.getWeight());
+        map.forEach(System.out::println);
     }
 
     /**筛选苹果*/
@@ -33,12 +44,19 @@ public class Strategy {
 
     public static void prettyPrintApple(List<Apple> inventory, AppleFormatter f){
         for(Apple apple: inventory) {
-
-
+            String outPut = f.accept(apple);
+            System.out.println(outPut);
         }
     }
 
+    public static <T,R> List<R> map(List<T> list,MyFunction<T,R> f){
 
+        List<R> rList = new ArrayList<>();
+        for (T t: list) {
+            rList.add(f.apply(t));
+        }
+        return rList;
+    }
 }
 
 
@@ -84,6 +102,35 @@ class AppleWeightPredicate implements ApplePredicate{
  *
  */
 interface AppleFormatter{
-    //todo 字符格式化
     String accept(Apple a);
+}
+
+
+class AppleFancyFormatter implements AppleFormatter{
+
+    @Override
+    public String accept(Apple a) {
+        String characteristic = a.getWeight() > 150 ? "heavy" :
+                "light";
+        return "A " + characteristic +
+                " " + a.getColor() +" apple";
+
+    }
+}
+
+class AppleSimpleFormatter implements AppleFormatter{
+    public String accept(Apple apple){
+        return "An apple of " + apple.getWeight() + "g";
+    }
+}
+
+
+/**
+ *  ###############
+ *  函数式接口Function
+ */
+
+interface MyFunction<T,R>{
+
+    R apply(T t);
 }
