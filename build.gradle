@@ -2,13 +2,22 @@ group 'com.liang'
 version '1.0'
 
 apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'idea'
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
-    mavenCentral()
+
+    maven {
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    mavenLocal()
+
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
 }
