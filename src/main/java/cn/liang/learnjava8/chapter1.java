@@ -18,10 +18,11 @@ public class chapter1 {
 }
 
 
-class Apple{
+class Apple extends Fruit{
     private String color;
     private Double weight;
     public Apple(){}
+    public Apple(Double weight){this.weight = weight;}
     public Apple(String c,Double w){color = c;weight = w;}
     public String getColor() {
         return color;
