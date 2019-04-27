@@ -1,7 +1,0 @@
-# Created by .ignore support plugin (hsz.mobi)
-.gitignore
-.gradle/
-.idea/libraries/Gradle__javax_servlet_javax_servlet_api_3_1_0.xml
-.idea/workspace.xml
-build/
-out/
