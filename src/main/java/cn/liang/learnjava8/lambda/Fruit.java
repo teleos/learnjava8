@@ -1,4 +1,4 @@
-package cn.liang.learnjava8;
+package cn.liang.learnjava8.lambda;
 
 public class Fruit {
 }

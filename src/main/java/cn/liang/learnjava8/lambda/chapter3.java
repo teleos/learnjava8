@@ -1,4 +1,4 @@
-package cn.liang.learnjava8;
+package cn.liang.learnjava8.lambda;
 
 import java.util.*;
 import java.util.function.BiFunction;
@@ -16,6 +16,7 @@ public class chapter3 {
         List<Double> weights = Arrays.asList(7.2,3.0,4.3,10.1);
         List<Apple> apples = map(weights,Apple::new);
 
+        apples.sort(Comparator.comparing(Apple::getWeight).reversed());
         apples.forEach(System.out::println);
 
         BiFunction<String,Double,Apple> c3 = Apple::new;

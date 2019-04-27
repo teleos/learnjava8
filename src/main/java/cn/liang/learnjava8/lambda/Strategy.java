@@ -1,4 +1,4 @@
-package cn.liang.learnjava8;
+package cn.liang.learnjava8.lambda;
 
 import java.util.ArrayList;
 import java.util.Arrays;
