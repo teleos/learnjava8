@@ -54,5 +54,10 @@ public class TestMenu1 {
 
         Optional<Dish> dish = menu.stream().filter(Dish::isVegetarian).findAny();
         System.out.println(dish);
+
+        System.out.println("**********************数值流**************************");
+        int calories = menu.stream().mapToInt(Dish::getCalories).sum();
+        System.out.println("计算所有的calories:"+calories);
+
     }
 }

@@ -2,9 +2,7 @@
   <artifact type="exploded-war" name="Gradle : com.liang : learnjava8-1.0.war (exploded)">
     <output-path>$PROJECT_DIR$/build/libs/exploded/learnjava8-1.0.war</output-path>
     <properties id="gradle-properties">
-      <options external-project-path="$PROJECT_DIR$">
-        <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
-      </options>
+      <options external-project-path="$PROJECT_DIR$" />
     </properties>
     <root id="root">
       <element id="directory" name="META-INF">
@@ -17,6 +15,8 @@
           <element id="dir-copy" path="$PROJECT_DIR$/out/production/resources" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="learnjava8_main/web/Web" />
+      <element id="javaee-facet-resources" facet="learnjava8_main/web/Web" />
     </root>
   </artifact>
 </component>
