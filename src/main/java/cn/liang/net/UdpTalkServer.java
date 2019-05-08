@@ -11,7 +11,7 @@ public class UdpTalkServer {
 
         System.out.println("教师端启动。。。");
 
-        new Thread(new Recieve(9999)).start();
+        new Thread(new Recieve(9999,"学生")).start();
         new Thread(new Send(10000, "localhost", 10001)).start();
     }
 }

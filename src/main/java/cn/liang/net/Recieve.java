@@ -8,8 +8,10 @@ import java.net.SocketException;
 public class Recieve implements Runnable {
 
     private DatagramSocket server ;
+    private String from;
 
-    public Recieve(int reciveSocket){
+    public Recieve(int reciveSocket,String from){
+        this.from = from;
         try  {
             server = new DatagramSocket(reciveSocket);
         } catch (SocketException e) {
@@ -30,7 +32,7 @@ public class Recieve implements Runnable {
 
             String s = new String(p.getData(), 0, p.getLength());
 
-            System.out.println(s);
+            System.out.println(from +":"+ s);
             if (s.equals("bye")) break;
         }
     }
