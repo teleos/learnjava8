@@ -92,6 +92,7 @@ class MyXmlHandle extends DefaultHandler{
 class Person{
     private String name;
     private int age;
+    private int id;
 
     public Person() {
     }
@@ -117,11 +118,20 @@ class Person{
         this.age = age;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", id=" + id +
                 '}';
     }
 }

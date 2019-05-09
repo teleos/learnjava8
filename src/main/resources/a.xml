@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persons>
 
-    <person>
+    <person id="1">
         <name>张三丰</name>
         <age>108</age>
     </person>
-    <person>
+    <person id="2">
         <name>张翠山</name>
         <age>38</age>
     </person>
 
-    <person>
+    <person id="3">
         <name>张无忌</name>
         <age>28</age>
     </person>
