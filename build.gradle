@@ -22,4 +22,7 @@ dependencies {
     compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
     testCompile group: 'junit', name: 'junit', version: '4.12'
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.16'
+
 }
