@@ -23,6 +23,7 @@ public class JDBCUtils {
 
         return DriverManager.getConnection(url, username, password);
     }
+
     public static void close(Connection connection){
         if (connection!=null) {
             try {
