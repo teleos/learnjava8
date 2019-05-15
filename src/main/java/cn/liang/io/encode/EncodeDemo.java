@@ -25,8 +25,6 @@ public class EncodeDemo {
                 writer.newLine();
             }
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -10,7 +10,6 @@ public class ConnectMysql {
             //1.注册驱动
             Class.forName("com.mysql.cj.jdbc.Driver");
             //2.获取链接
-
             connection = JDBCUtils.getConnection();
             //3.传输语句
             PreparedStatement preparedStatement = connection.prepareStatement("select * from good");
@@ -27,11 +26,9 @@ public class ConnectMysql {
             }
 
 
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }finally {
+        } finally {
             JDBCUtils.close(connection);
         }
     }
