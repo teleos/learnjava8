@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 import java.net.*;
 import java.util.concurrent.TimeUnit;
 
-public class Client extends JFrame implements ActionListener{
+public class Client extends JFrame implements ActionListener,Transmit{
 
     private JPanel contentPanel ,panel1,goPanel;
     private JLabel addressLabel,portLabel,inputMsgLabel;
@@ -21,10 +21,14 @@ public class Client extends JFrame implements ActionListener{
     private JButton chatButton,sendButton;
     private JButton b1  ,eb;
 
+
+
+
     public Client(){
 
         initComponent();
-
+        ((GobangPanel) goPanel).setCanPlay(false);
+        ((GobangPanel) goPanel).isBlack = true;
         chatButton.addActionListener(this);
         sendButton.addActionListener(this);
     }
@@ -54,8 +58,19 @@ public class Client extends JFrame implements ActionListener{
                              TimeUnit.MILLISECONDS.sleep(100);
 
                              if (reader.ready()){
-                                 String s = reader.readLine();
-                                 jta.append( "服务端："+s+"\n");
+                                 String cmd = reader.readLine();
+                                 jta.append( "服务端："+cmd+"\n");
+                                 String[] ss = cmd.split("\\|");
+                                 if (cmd.startsWith("move")){
+
+                                     int x = Integer.parseInt(ss[1]);
+                                     int y = Integer.parseInt(ss[2]);
+                                     int[][] allChess = ((GobangPanel) goPanel).getAllChess();
+                                     allChess[x][y] = 2;
+                                     goPanel.repaint();
+//                                    canPlay = true;
+                                     ((GobangPanel) goPanel).setCanPlay(false);
+                                 }
                              }
                          }
                     } catch (InterruptedException e) {
@@ -71,7 +86,7 @@ public class Client extends JFrame implements ActionListener{
         }
     }
 
-    private void sendData(String msg) {
+    public void sendData(String msg) {
         if (out!=null){
             out.println(msg);
             jta.append("客户端："+msg+"\n");
@@ -87,7 +102,7 @@ public class Client extends JFrame implements ActionListener{
         contentPanel = (JPanel) this.getContentPane();
         contentPanel.setLayout(null);
         panel1 = new JPanel(null);
-        goPanel = new GobangPanel();
+        goPanel = new GobangPanel(this);
         goPanel.setLayout(null);
 
         addressLabel = new JLabel("服务器地址：");
@@ -175,45 +190,6 @@ public class Client extends JFrame implements ActionListener{
     }
 
 
-    class GobangPanel extends JPanel {
 
-        private String msg ;
-
-
-        public GobangPanel(){
-
-        }
-
-        @Override
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            g.setColor(Color.BLACK);
-            g.drawString("游戏信息"+msg ,130,40);
-            for (int i = 0; i < 19; i++) {//绘制棋盘
-                g.drawLine(10,50+20*i,370,50+20*i); //画棋盘
-                g.drawLine(10+20*i,50,10+20*i,410);
-
-                //标注点位
-                g.fillOval(68,108,4,4);
-                g.fillOval(308,108,4,4);
-                g.fillOval(308,348,4,4);
-                g.fillOval(68,348,4,4);
-
-                g.fillOval(308,228,4,4);
-                g.fillOval(188,108,4,4);
-                g.fillOval(68,228,4,4);
-                g.fillOval(188,348,4,4);
-                g.fillOval(188,228,4,4);
-            }
-        }
-
-        public String getMsg() {
-            return msg;
-        }
-
-        public void setMsg(String msg) {
-            this.msg = msg;
-        }
-    }
 
 }
