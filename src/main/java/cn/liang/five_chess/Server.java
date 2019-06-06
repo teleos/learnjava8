@@ -146,7 +146,7 @@ public class Server extends JFrame implements ActionListener ,Transmit{
                     while (true) {
                         try {
                             TimeUnit.MILLISECONDS.sleep(100);
-
+                            //
                             if (reader == null) {
                                 reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                             }
