@@ -69,7 +69,7 @@ public class Client extends JFrame implements ActionListener,Transmit{
                                      allChess[x][y] = 2;
                                      goPanel.repaint();
 //                                    canPlay = true;
-                                     ((GobangPanel) goPanel).setCanPlay(false);
+                                     ((GobangPanel) goPanel).setCanPlay(true);
                                  }
                              }
                          }

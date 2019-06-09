@@ -1,17 +1,14 @@
 package cn.liang.wx;
 
-import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-@Table(name = "wx_user", schema = "test", catalog = "")
+
 public class WxUser {
     private int uid;
     private String uname;
     private String pwd;
 
-    @Id
-    @Column(name = "uid")
+
     public int getUid() {
         return uid;
     }
@@ -20,8 +17,7 @@ public class WxUser {
         this.uid = uid;
     }
 
-    @Basic
-    @Column(name = "uname")
+
     public String getUname() {
         return uname;
     }
@@ -30,8 +26,7 @@ public class WxUser {
         this.uname = uname;
     }
 
-    @Basic
-    @Column(name = "pwd")
+
     public String getPwd() {
         return pwd;
     }

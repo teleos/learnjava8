@@ -160,10 +160,10 @@ public class Server extends JFrame implements ActionListener ,Transmit{
                                     int x = Integer.parseInt(ss[1]);
                                     int y = Integer.parseInt(ss[2]);
                                     int[][] allChess = ((GobangPanel) goPanel).getAllChess();
-                                    allChess[x][y] = 2;
+                                    allChess[x][y] = 1;
                                     goPanel.repaint();
 //                                    canPlay = true;
-                                    ((GobangPanel) goPanel).setCanPlay(false);
+                                    ((GobangPanel) goPanel).setCanPlay(true);
                                 }
 
                             }
@@ -187,7 +187,7 @@ public class Server extends JFrame implements ActionListener ,Transmit{
         try {
             if (os == null)
                 os = new PrintWriter(socket.getOutputStream());
-            os.println("服务器" + msg);
+            os.println( msg);
             os.flush();
 
             if (!msg.equals("已经连接成功")) {

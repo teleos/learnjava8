@@ -75,35 +75,34 @@ public class GobangPanel extends JPanel {
         super.paintComponent(g);
         g.setColor(Color.BLACK);
         g.drawString("游戏信息" + msg, 130, 40);
-        for (int i = 0; i < 19; i++) {//绘制棋盘
-            g.drawLine(10, 50 + 20 * i, 370, 50 + 20 * i); //画棋盘
+        // 绘制棋盘
+        for (int i = 0; i < 19; i++) {
+            g.drawLine(10, 50 + 20 * i, 370, 50 + 20 * i);
             g.drawLine(10 + 20 * i, 50, 10 + 20 * i, 410);
-
-            //标注点位
-            g.fillOval(68, 108, 4, 4);
-            g.fillOval(308, 108, 4, 4);
-            g.fillOval(308, 348, 4, 4);
-            g.fillOval(68, 348, 4, 4);
-
-            g.fillOval(308, 228, 4, 4);
-            g.fillOval(188, 108, 4, 4);
-            g.fillOval(68, 228, 4, 4);
-            g.fillOval(188, 348, 4, 4);
-            g.fillOval(188, 228, 4, 4);
         }
 
+        // 标注点位
+        g.fillOval(68, 108, 4, 4);
+        g.fillOval(308, 108, 4, 4);
+        g.fillOval(308, 348, 4, 4);
+        g.fillOval(68, 348, 4, 4);
+        g.fillOval(308, 228, 4, 4);
+        g.fillOval(188, 108, 4, 4);
+        g.fillOval(68, 228, 4, 4);
+        g.fillOval(188, 348, 4, 4);
+        g.fillOval(188, 228, 4, 4);
 
-        //绘制全部棋子
+        // 绘制全部棋子
         for (int i = 0; i < 19; i++) {
             for (int j = 0; j < 19; j++) {
-                if (allChess[i][j] == 1) {//黑子
+                if (allChess[i][j] == 1) {
+                    // 黑子
                     int tempX = i * 20 + 10;
-                    int tempY = i * 20 + 70;
-
+                    int tempY = j * 20 + 70;
                     g.fillOval(tempX - 7, tempY - 7, 14, 14);
                 }
-
                 if (allChess[i][j] == 2) {
+                    // 白子
                     int tempX = i * 20 + 10;
                     int tempY = j * 20 + 70;
                     g.setColor(Color.WHITE);
@@ -112,7 +111,6 @@ public class GobangPanel extends JPanel {
                     g.drawOval(tempX - 7, tempY - 7, 14, 14);
                 }
             }
-
         }
     }
 
