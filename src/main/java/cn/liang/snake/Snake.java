@@ -75,7 +75,7 @@ public class Snake extends KeyAdapter {
         if (head.col < 0){
             head.col = Yard.Node_COUNT-1;
         }
-        if (head.row > Yard.Node_COUNT - 1)head.row = 0;
+        if (head.row > Yard.Node_COUNT - 1) head.row = 0;
         if (head.col > Yard.Node_COUNT - 1) head.col = 0;
     }
 
