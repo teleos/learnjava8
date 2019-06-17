@@ -156,7 +156,6 @@ public class Server extends JFrame implements ActionListener ,Transmit{
                                 msgJta.append("客户端：" + cmd + "\n");
                                 String[] ss = cmd.split("\\|");
                                 if (cmd.startsWith("move")){
-
                                     int x = Integer.parseInt(ss[1]);
                                     int y = Integer.parseInt(ss[2]);
                                     int[][] allChess = ((GobangPanel) goPanel).getAllChess();
